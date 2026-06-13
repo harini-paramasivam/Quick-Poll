@@ -11,6 +11,7 @@ module.exports = (req, res, next) => {
         httpOnly: true,
         sameSite: isProd ? 'none' : 'lax',
         secure: isProd,
+        path: '/',
         maxAge: 365 * 24 * 60 * 60 * 1000,
       });
       // attach to req so later handlers can read without requiring next request

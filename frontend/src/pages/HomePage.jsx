@@ -1,10 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Card from '../components/Card';
 
 function HomePage() {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-10">
+      <div className="flex justify-end">
+        <Button type="button" variant="secondary" onClick={() => navigate(-1)}>
+          Back
+        </Button>
+      </div>
       <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <span className="inline-flex rounded-full bg-brand-500/15 px-4 py-1 text-sm uppercase tracking-[0.24em] text-brand-200">

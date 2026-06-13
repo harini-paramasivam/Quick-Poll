@@ -71,17 +71,20 @@ function VotePage() {
 
   return (
     <div className="space-y-8">
-      <section className="space-y-3">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 className="text-3xl font-semibold text-white">{poll.title}</h1>
-            <p className="text-sm text-slate-400">Vote on this public poll below.</p>
-          </div>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="space-y-3">
+          <h1 className="text-3xl font-semibold text-white">{poll.title}</h1>
+          <p className="text-sm text-slate-400">Vote on this public poll below.</p>
+        </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button type="button" variant="secondary" onClick={() => navigate(-1)}>
+            Back
+          </Button>
           <Link to={`/poll/${pollId}/results`} className="text-sm text-brand-300 hover:text-brand-100">
             View results
           </Link>
         </div>
-      </section>
+      </div>
 
       <Card>
         {poll.isClosed ? (

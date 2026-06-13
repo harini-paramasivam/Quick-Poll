@@ -60,11 +60,16 @@ function CreatePollPage() {
 
   return (
     <div className="space-y-8">
-      <div className="space-y-3">
-        <h1 className="text-4xl font-semibold text-white">Create a new poll</h1>
-        <p className="max-w-2xl text-slate-400">
-          Set a question, add between two and five options, and optionally close voting automatically with an expiry date.
-        </p>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="space-y-3">
+          <h1 className="text-4xl font-semibold text-white">Create a new poll</h1>
+          <p className="max-w-2xl text-slate-400">
+            Set a question, add between two and five options, and optionally close voting automatically with an expiry date.
+          </p>
+        </div>
+        <Button type="button" variant="secondary" onClick={() => navigate(-1)}>
+          Back
+        </Button>
       </div>
       <Card>
         <form onSubmit={handleSubmit} className="space-y-6">

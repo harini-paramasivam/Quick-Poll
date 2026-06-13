@@ -6,11 +6,23 @@ if (!baseURL && import.meta.env.PROD) {
   throw new Error('VITE_API_URL must be set in production');
 }
 
+if (baseURL) {
+  try {
+    const parsedUrl = new URL(baseURL);
+    if (!/^https?:$/.test(parsedUrl.protocol)) {
+      throw new Error('VITE_API_URL must use http or https protocol');
+    }
+  } catch (error) {
+    throw new Error('VITE_API_URL must be a valid URL');
+  }
+}
+
 if (!baseURL && import.meta.env.DEV) {
   // In development, developers should set VITE_API_URL in their .env.local
   // Leaving baseURL undefined will make requests relative to the current origin.
   console.warn('VITE_API_URL is not set. API requests will be relative to the frontend origin.');
 }
+
 // Normalize baseURL (remove trailing slash) to avoid double-slash in requests
 if (baseURL) {
   baseURL = baseURL.replace(/\/+$/, '');

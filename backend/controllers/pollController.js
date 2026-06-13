@@ -2,19 +2,8 @@ const asyncHandler = require('../middleware/asyncHandler');
 const pollService = require('../services/pollService');
 const voteService = require('../services/voteService');
 
-const getFingerprint = (req, res) => {
-  let fingerprint = req.cookies.quickpoll_voter;
-  if (!fingerprint) {
-    fingerprint = require('crypto').randomBytes(24).toString('hex');
-    res.cookie('quickpoll_voter', fingerprint, {
-      httpOnly: true,
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 365 * 24 * 60 * 60 * 1000,
-    });
-  }
-
-  return fingerprint;
+const getFingerprint = (req) => {
+  return req.cookies && req.cookies.quickpoll_voter;
 };
 
 const createPoll = asyncHandler(async (req, res) => {
