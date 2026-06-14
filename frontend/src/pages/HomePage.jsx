@@ -7,11 +7,6 @@ function HomePage() {
 
   return (
     <div className="space-y-10">
-      <div className="flex justify-end">
-        <Button type="button" variant="secondary" onClick={() => navigate(-1)}>
-          Back
-        </Button>
-      </div>
       <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-6">
           <span className="inline-flex rounded-full bg-brand-500/15 px-4 py-1 text-sm uppercase tracking-[0.24em] text-brand-200">
@@ -28,9 +23,9 @@ function HomePage() {
             <Link to="/create">
               <Button>Start a Poll</Button>
             </Link>
-            <a className="inline-flex items-center rounded-xl border border-slate-700 bg-slate-900 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500" href="#features">
-              See Features
-            </a>
+            <Link to="/features">
+              <Button variant="secondary">See Features</Button>
+            </Link>
           </div>
         </div>
         <div className="rounded-[2rem] border border-slate-800 bg-slate-900/90 p-8 shadow-xl shadow-slate-950/30">

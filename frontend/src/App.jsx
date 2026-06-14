@@ -5,6 +5,7 @@ import VotePage from './pages/VotePage';
 import ResultsPage from './pages/ResultsPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
 import NotFoundPage from './pages/NotFoundPage';
+import FeaturesPage from './pages/FeaturesPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/create" element={<CreatePollPage />} />
+          <Route path="/features" element={<FeaturesPage />} />
           <Route path="/poll/:pollId" element={<VotePage />} />
           <Route path="/poll/:pollId/results" element={<ResultsPage />} />
           <Route path="/manage/:adminToken" element={<AdminDashboardPage />} />
